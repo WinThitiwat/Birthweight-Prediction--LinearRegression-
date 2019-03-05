@@ -79,6 +79,12 @@ for col, plot_value in target_plot.items():
     plt.legend()
 
 
+##################################################################
+# before we decide what the outlier values are, we used boxplot to
+# do visual inspection to finalize the outlier values
+##################################################################
+
+
 ######################################
 #  Features Engineering  ##
 ######################################
@@ -144,6 +150,10 @@ flag_outlier(
     compare_greater=False
     )
 flag_outlier(birthweight, "drink", "out_drink", drink_hi, 1)
+
+# inspect some new outlier flag columns
+print(birthweight["out_monpre"].head())
+print(birthweight["out_fage"].head())
 
 
 ######################################
