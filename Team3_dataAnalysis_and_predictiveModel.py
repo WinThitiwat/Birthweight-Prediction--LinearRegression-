@@ -218,6 +218,18 @@ lm_significant = smf.ols(formula=my_formula,
 results = lm_significant.fit()
 print(results.summary())
 
+# evaluate R-Square (same as the score above)
+lr_rsq = metrics.r2_score(y_test, lr_pred)
+print(lr_rsq)
+
+# evaluate Mean Squared Error
+lr_mse = metrics.mean_squared_error(y_test, lr_pred)
+print(lr_mse)
+
+# evaluate Root Mean Squared Error (how far off are we on each observation?)
+lr_rmse = np.sqrt(lr_mse)
+print(lr_rmse)
+
 # export prediction values to Excel
 df_lr_pred = pd.DataFrame(
                         lr_pred.round(2),
